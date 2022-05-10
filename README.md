@@ -5,7 +5,7 @@
 This package involves some demos I collected that using state-of-the-art models for running real-time pose detection
 in your browser.
 
-**Hint: Since most of models in the package are trained by Google,make sure that you are able to bypass the GFW.*
+*Hint: Since most of models in the package are trained by Google,make sure that you are able to bypass the GFW.*
 
 Before we start, let's give a brief introduction to the principle of pose-detection technology in web browsers.
 <br>
@@ -14,5 +14,7 @@ Above all, every ingenious effect achievement in this package is realized by mac
 
 <img src="./img/001.pic.jpg"/>
 
+These days, we have many platforms to  create machine learning models.**Tensorflow(Google)** and **Pytorch(Facebook/Meta)** are popular ones among them.Both of them require **Python** skills to create and apply models.To **Digital Art Designers/Game Developers/Software Engineers(especially Front-End Engineers)** who do not have enough mathematic and Python-Programming skills,nevertheless,those platforms have steep learning curve.
 
+To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript.
 ### 01-Posenet in P5.js
