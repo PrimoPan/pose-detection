@@ -14,8 +14,9 @@ modelLoaded=()=>
 gotPoses=(poses)=>{
 
     if (poses.length>0){
-        console.log(poses)
+      //  console.log(poses)
         pose=poses[0].pose;
+        console.log(pose);
         skeleton=poses[0].skeleton;
     }
 }

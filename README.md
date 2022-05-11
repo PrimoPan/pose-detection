@@ -11,15 +11,276 @@ Before we start, let's give a brief introduction to the principle of pose-detect
 <br>
 
 Above all, every ingenious effect achievement in this package is realized by machine learning.In brief, machine learning is a method that you make the computer understand something by teaching it something.You tell the computer that 'A' is 'A' and "B" isn't 'A' many many many times by delivering countless data to the computer,and we call it 'Dataset'.Then the computer will learn the *Dataset* via some algorithms.After the learning process, if you give the computer some information,it will classify them.And then it can tell you "A" is  "A' with a great probability.
-
+<div align="center">
 <img src="./img/001.pic.jpg"/>
+</div>
 
 These days, we have many platforms to  create machine learning models.**Tensorflow(Google)** and **Pytorch(Facebook/Meta)** are popular ones among them.Both of them require **Python** skills to create and apply models.To **Digital Art Designers/Game Developers/Software Engineers(especially Front-End Engineers)** who do not have enough mathematic and Python-Programming skills,nevertheless,those platforms have steep learning curve.
 
-To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript or in another word,in Web.Since web is so convenient that we can use it on almost every console.And we can 'Code once,run everywhere'.
+To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript or in another word,in Web.Meanwhile,Node.JS is also available.Since web is so convenient that we can use it on almost every console.And we can 'Code once,run everywhere'.
 
 To simplify the process further,we got **ML5.JS**.It is derived from tensorflow.js and relies heavily on **P5.JS** which is another JS library (processing in the web).So you can consider that both ML5.JS and P5.JS are designed for we digital-art students or someone who is interested in the application of AI.
 
 ### 01-Posenet in P5.js
 
+Tensorflow.js provides 3 kinds of pose-detection models:**MoveNet, Blazepose and Posenet**.They're trained by different research teams in Google.
+In ML5.js, we use the **Posenet** model.
 
+**Posenet** is trained by the dataset <a href="https://paperswithcode.com/dataset/coco">"COCO"</a>((Microsoft Common Objects in Context)).It is a large-scale object detection, segmentation, key-point detection, and captioning dataset. The dataset consists of 328K images.
+
+As a result ,in **Posenet** ,we got a keypoint diagram called *COCO Keypoints*,and so does it in **Movenet**.
+
+<div align="center">
+    <img   src="./img/002.png"/>
+</div>
+
+The data will be reserved in an array, and their index are:
+```json
+0: nose
+1: left_eye
+2: right_eye
+3: left_ear
+4: right_ear
+5: left_shoulder
+6: right_shoulder
+7: left_elbow
+8: right_elbow
+9: left_wrist
+10: right_wrist
+11: left_hip
+12: right_hip
+13: left_knee
+14: right_knee
+15: left_ankle
+16: right_ankle
+```
+
+In ML5.JS,once we detect a "pose" from the image or video, we got an object.First, it has a score stands for the confidence score.Then we got an array called "keypoints".The 17 points are reserved in the order above in this array,and every point has a score,'part' and a position coordinate.For the coordinate,x and y represent the actual keypoint position in the image,which is different from that in **Blazepose**.Besides the array,each part is stored in the object,so if you want to know the x index of "nose",just use **let x=pose.nose.x**.
+```javascript
+{
+    "score": 0.36062840477782576,
+    "keypoints": [
+        {
+            "score": 0.9998100399971008,
+            "part": "nose",
+            "position": {
+                "x": 304.9208122283104,
+                "y": 309.5389037373465
+            }
+        },
+        {
+            "score": 0.9993601441383362,
+            "part": "leftEye",
+            "position": {
+                "x": 350.35096105434553,
+                "y": 267.1330611529517
+            }
+        },
+        {
+            "score": 0.9985820055007935,
+            "part": "rightEye",
+            "position": {
+                "x": 278.3887003367977,
+                "y": 259.3134281143604
+            }
+        },
+        {
+            "score": 0.8186571002006531,
+            "part": "leftEar",
+            "position": {
+                "x": 397.34817979864573,
+                "y": 290.57919038408926
+            }
+        },
+        {
+            "score": 0.4284822642803192,
+            "part": "rightEar",
+            "position": {
+                "x": 235.44428754873314,
+                "y": 282.58995798311344
+            }
+        },
+        {
+            "score": 0.8433191776275635,
+            "part": "leftShoulder",
+            "position": {
+                "x": 471.59480588445405,
+                "y": 496.9624085185129
+            }
+        },
+        {
+            "score": 0.9728891253471375,
+            "part": "rightShoulder",
+            "position": {
+                "x": 154.78833803406948,
+                "y": 479.0577168594539
+            }
+        },
+        {
+            "score": 0.0226301196962595,
+            "part": "leftElbow",
+            "position": {
+                "x": 529.4033742229299,
+                "y": 585.576703854572
+            }
+        },
+        {
+            "score": 0.017581390216946602,
+            "part": "rightElbow",
+            "position": {
+                "x": 34.78550595532132,
+                "y": 580.9919186603234
+            }
+        },
+        {
+            "score": 0.0062744165770709515,
+            "part": "leftWrist",
+            "position": {
+                "x": 512.406827577821,
+                "y": 553.6286341448239
+            }
+        },
+        {
+            "score": 0.002704796614125371,
+            "part": "rightWrist",
+            "position": {
+                "x": 76.06921570774182,
+                "y": 557.3660603293185
+            }
+        },
+        {
+            "score": 0.00424220459535718,
+            "part": "leftHip",
+            "position": {
+                "x": 398.1407143077034,
+                "y": 564.717056927514
+            }
+        },
+        {
+            "score": 0.00541426008567214,
+            "part": "rightHip",
+            "position": {
+                "x": 240.92917965543873,
+                "y": 555.8058724607475
+            }
+        },
+        {
+            "score": 0.0022254108916968107,
+            "part": "leftKnee",
+            "position": {
+                "x": 400.528016146055,
+                "y": 551.4891182866078
+            }
+        },
+        {
+            "score": 0.0033826844301074743,
+            "part": "rightKnee",
+            "position": {
+                "x": 184.80833773483099,
+                "y": 543.0382065828672
+            }
+        },
+        {
+            "score": 0.002814995124936104,
+            "part": "leftAnkle",
+            "position": {
+                "x": 386.2246680352475,
+                "y": 550.1599762319127
+            }
+        },
+        {
+            "score": 0.002312745898962021,
+            "part": "rightAnkle",
+            "position": {
+                "x": 152.1527099609375,
+                "y": 543.721379974009
+            }
+        }
+    ],
+    "nose": {
+        "x": 304.9208122283104,
+        "y": 309.5389037373465,
+        "confidence": 0.9998100399971008
+    },
+    "leftEye": {
+        "x": 350.35096105434553,
+        "y": 267.1330611529517,
+        "confidence": 0.9993601441383362
+    },
+    "rightEye": {
+        "x": 278.3887003367977,
+        "y": 259.3134281143604,
+        "confidence": 0.9985820055007935
+    },
+    "leftEar": {
+        "x": 397.34817979864573,
+        "y": 290.57919038408926,
+        "confidence": 0.8186571002006531
+    },
+    "rightEar": {
+        "x": 235.44428754873314,
+        "y": 282.58995798311344,
+        "confidence": 0.4284822642803192
+    },
+    "leftShoulder": {
+        "x": 471.59480588445405,
+        "y": 496.9624085185129,
+        "confidence": 0.8433191776275635
+    },
+    "rightShoulder": {
+        "x": 154.78833803406948,
+        "y": 479.0577168594539,
+        "confidence": 0.9728891253471375
+    },
+    "leftElbow": {
+        "x": 529.4033742229299,
+        "y": 585.576703854572,
+        "confidence": 0.0226301196962595
+    },
+    "rightElbow": {
+        "x": 34.78550595532132,
+        "y": 580.9919186603234,
+        "confidence": 0.017581390216946602
+    },
+    "leftWrist": {
+        "x": 512.406827577821,
+        "y": 553.6286341448239,
+        "confidence": 0.0062744165770709515
+    },
+    "rightWrist": {
+        "x": 76.06921570774182,
+        "y": 557.3660603293185,
+        "confidence": 0.002704796614125371
+    },
+    "leftHip": {
+        "x": 398.1407143077034,
+        "y": 564.717056927514,
+        "confidence": 0.00424220459535718
+    },
+    "rightHip": {
+        "x": 240.92917965543873,
+        "y": 555.8058724607475,
+        "confidence": 0.00541426008567214
+    },
+    "leftKnee": {
+        "x": 400.528016146055,
+        "y": 551.4891182866078,
+        "confidence": 0.0022254108916968107
+    },
+    "rightKnee": {
+        "x": 184.80833773483099,
+        "y": 543.0382065828672,
+        "confidence": 0.0033826844301074743
+    },
+    "leftAnkle": {
+        "x": 386.2246680352475,
+        "y": 550.1599762319127,
+        "confidence": 0.002814995124936104
+    },
+    "rightAnkle": {
+        "x": 152.1527099609375,
+        "y": 543.721379974009,
+        "confidence": 0.002312745898962021
+    }
+}
+```
