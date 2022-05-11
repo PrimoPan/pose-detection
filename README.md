@@ -16,5 +16,10 @@ Above all, every ingenious effect achievement in this package is realized by mac
 
 These days, we have many platforms to  create machine learning models.**Tensorflow(Google)** and **Pytorch(Facebook/Meta)** are popular ones among them.Both of them require **Python** skills to create and apply models.To **Digital Art Designers/Game Developers/Software Engineers(especially Front-End Engineers)** who do not have enough mathematic and Python-Programming skills,nevertheless,those platforms have steep learning curve.
 
-To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript.
+To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript or in another word,in Web.Since web is so convenient that we can use it on almost every console.And we can 'Code once,run everywhere'.
+
+To simplify the process further,we got **ML5.JS**.It is derived from tensorflow.js and relies heavily on **P5.JS** which is another JS library (processing in the web).So you can consider that both ML5.JS and P5.JS are designed for we digital-art students or someone who is interested in the application of AI.
+
 ### 01-Posenet in P5.js
+
+
