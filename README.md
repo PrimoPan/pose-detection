@@ -436,3 +436,33 @@ The demo written by me can recognize which hand is detecting,by comparing the **
 
 And, we can make use of the coordinate of every finger to judge if it is bent.If it is bent,the circle of this finger in the image will turn red.
 We are able to recognize some gestures like '1,2,3,4,5,6' via counting which finger is bent,without machine learning algorithms.
+
+
+### 04-train_own_model
+
+Despite computing coordinates by their positional relationship,you can also use machine learning skills to classify a gesture.
+
+In ml5.js,it's not very difficult for us to train our own models.
+
+I've written a demo in <a src="./04-train-own_model">04-train-own_model</a>.
+
+The model can train 4 different gestures.If you want to train more models,find all the 'options' in all javascript documents and change the 'output' number to whatever you want.
+
+First,open the 'collect' document.Press any button on your keyboard except 's'.And then you will see the 'waiting' on the screen turns to 'ready'.You need to get ready to show your gestures in front your webcams.Then 'ready' will turn to 'collecting'.
+The program starts to collect your body's data.
+
+Then the word will trun to 'waiting' again,you are able to press another key.After you've pressed 4 keys (or the number you want),press 'S' and you will get a JSON document that stores the data.
+
+Rename the JSON file and drag it to the file 'train'.
+
+Change your root to 'train' , open the 'index.js'.In line 12,change the json file's name to what you've just renamed it.And then run the HTML file.The model will be training.
+
+<div align="center">
+<img src="./img/005.png"/>
+</div>
+
+Wait a minute,and you will get three files.
+
+Change your root to "classify" folder.And put those files in the folder "model".
+
+Run the HTML file, and make some poses.The computer is able to classify the pose by models your trained!
