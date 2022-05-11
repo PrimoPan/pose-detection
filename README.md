@@ -295,7 +295,7 @@ Handpose is a machine-learning model that allows for palm detection and hand-ske
     <img   src="./img/hand.pic.jpg"/>
 </div>
 
-Just like  **Posenet** ,we will get an object from the serve after detecting the hand.
+Just like  **Posenet** ,we will get an object from the server after detecting the hand.
 Firstly,the model has an array which stores the coordinate of 21 keypoints of hand above in order.
 Pay attention that every coordinate has three values [x,y,z]. [x,y] stands for the location of the point in the 2-D plane, and z is the number of z-index means you can use it in the 3-D space. 
 
