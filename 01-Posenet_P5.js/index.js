@@ -1,4 +1,5 @@
 let video;
+//视频
 let pose;
 //存放身体坐标信息
 let skeleton;

@@ -19,7 +19,7 @@ These days, we have many platforms to  create machine learning models.**Tensorfl
 
 To make machine-learning skills easier for developers,Google released a Javascript library **Tensorflow.js**.It makes it possible for us to create machine learning models in Javascript or in another word,in Web.Meanwhile,Node.JS is also available.Since web is so convenient that we can use it on almost every console.And we can 'Code once,run everywhere'.
 
-To simplify the process further,we got **ML5.JS**.It is derived from tensorflow.js and relies heavily on **P5.JS** which is another JS library (processing in the web).So you can consider that both ML5.JS and P5.JS are designed for we digital-art students or someone who is interested in the application of AI.
+To simplify the process further,we got **ML5.JS**.It is derived from tensorflow.js and relies heavily on **P5.JS** which is another JS library (processing in the web).So you can consider that both ML5.JS and P5.JS are designed for we digital-art students or someone(newbie) who is interested in the application of AI.
 
 ### 01-Posenet in P5.js
 
@@ -55,8 +55,9 @@ The data will be reserved in an array, and their index are:
 16: right_ankle
 ```
 
-In ML5.JS,once we detect a "pose" from the image or video, we got an object.First, it has a score stands for the confidence score.Then we got an array called "keypoints".The 17 points are reserved in the order above in this array,and every point has a score,'part' and a position coordinate.For the coordinate,x and y represent the actual keypoint position in the image,which is different from that in **Blazepose**.Besides the array,each part is stored in the object,so if you want to know the x index of "nose",just use **let x=pose.nose.x**.
-```javascript
+In ML5.JS,once we detect a "pose" from the image or video, we got an object.First, it has a score stands for the confidence score.Then we got an array called "keypoints".
+The 17 points are reserved in the order above in this array,and every point has a score,'part' and a position coordinate.For the coordinate,x and y represent the **actual keypoint position** in the image,which is different from that in **Blazepose**.Besides the array,each part is stored in the object,so if you want to know the x index of "nose",just use **let x=pose.nose.x**.
+```json
 {
     "score": 0.36062840477782576,
     "keypoints": [
@@ -284,3 +285,9 @@ In ML5.JS,once we detect a "pose" from the image or video, we got an object.Firs
     }
 }
 ```
+
+### 02-Handpose in P5.js
+<div align="center">
+    <img   src="./img/003.jpg"/>
+</div>
+Handpose is a machine-learning model that allows for palm detection and hand-skeleton finger tracking in the browser. It can detect a maximum of one hand at a time and provides 21 3D hand keypoints that describe important locations on the palm and fingers.
