@@ -466,3 +466,26 @@ Wait a minute,and you will get three files.
 Change your root to "classify" folder.And put those files in the folder "model".
 
 Run the HTML file, and make some poses.The computer is able to classify the pose by models your trained!
+
+### 05-Blazepose_P5.js
+
+Blazepose is another model released by a Google research team *Mediapipe*.You can use it in both tensorflow.js or mediapipe environment.
+
+Blazepose is the *Superset* of COCO,BlazeFace and BlazePalm.
+MediaPipe BlazePose can detect 33 keypoints, in addition to the 17 COCO keypoints, it provides additional keypoints for face, hands and feet.
+
+<div align="center">
+<img src="./img/06.png"/>
+</div>
+
+Each of the object of the 33-long array contains four variables.
+**[x,y,z]** stands for real-world 3D coordinates in meters with the origin at the center between hips.Unlike Posenet's Data,the coordinate numbers
+in Blazepose have been normalized.So it's always between [0,1].
+Once you want to transfer it on your screen,you have to multiply it to the height and width of the canvas.And another variables which name 'visibility' 
+stands for the confidence score.
+
+Tough Blazepose can detect only one person,it's much more steady than Posenet from my point of view.
+
+### 06-Blazepose
+
+This is a demo show how it works in the 3-D space.It uses HTML5-Canvas without P5.js.You can attach it to more complicated frameworks like Three.js and Babylon.js
