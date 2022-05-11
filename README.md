@@ -427,7 +427,7 @@ So if you want query the information of 'thumb',**let thumb=object.annotations.t
 ### 03-Handpose+Posenet in P5.js
 
 <div align="center">
-<img src="./img/004.jpg"/>
+<img src="./img/004.picg.jpg"/>
 </div>
 
 Now we can combine the two models together.So we can get both pose data and one hand's data.
