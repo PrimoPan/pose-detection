@@ -423,3 +423,16 @@ So if you want query the information of 'thumb',**let thumb=object.annotations.t
     ]
 }
 ```
+
+### 03-Handpose+Posenet in P5.js
+
+<div align="center">
+<img src="./img/004.jpg"/>
+</div>
+
+Now we can combine the two models together.So we can get both pose data and one hand's data.
+With this data, we can make some simple classifications.
+The demo written by me can recognize which hand is detecting,by comparing the **distance of palm(Handpose) and Wrist(Posenet)**.
+
+And, we can make use of the coordinate of every finger to judge if it is bent.If it is bent,the circle of this finger in the image will turn red.
+We are able to recognize some gestures like '1,2,3,4,5,6' via counting which finger is bent,without machine learning algorithms.
