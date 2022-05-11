@@ -5,9 +5,6 @@ let predictions=[];
 
 
 
-
-
-
 function setup()
 {
     createCanvas(640,480)
@@ -40,5 +37,25 @@ function drawKeypoints() {
             noStroke();
             ellipse(keypoint[0], keypoint[1], 15, 15);
         }
-    }
+
+        //画点
+        let annotations = prediction.annotations;
+        let parts = Object.keys(annotations);
+        let count = 0;
+        for (let part of parts) {
+            for (let position of annotations[part]) {
+                stroke(122, 255, 255);
+                strokeWeight(8);
+                noFill();
+                beginShape();
+                for (let position of annotations[part]) {
+                    let [x, y, z] = position;
+                    vertex(x, y);
+                }
+                endShape();
+            }
+        }
+        //画线
+        }
+
 }

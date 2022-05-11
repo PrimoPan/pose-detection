@@ -291,3 +291,135 @@ The 17 points are reserved in the order above in this array,and every point has 
     <img   src="./img/003.jpg"/>
 </div>
 Handpose is a machine-learning model that allows for palm detection and hand-skeleton finger tracking in the browser. It can detect a maximum of one hand at a time and provides 21 3D hand keypoints that describe important locations on the palm and fingers.
+<div align="center">
+    <img   src="./img/hand.pic.jpg"/>
+</div>
+
+Just like  **Posenet** ,we will get an object from the serve after detecting the hand.
+Firstly,the model has an array which stores the coordinate of 21 keypoints of hand above in order.
+Pay attention that every coordinate has three values [x,y,z]. [x,y] stands for the location of the point in the 2-D plane, and z is the number of z-index means you can use it in the 3-D space. 
+
+Besides the array we have an object in the object called 'annotations'.It stores every finger's information.
+So if you want query the information of 'thumb',**let thumb=object.annotations.thumb**
+
+```json
+{
+    "thumb": [
+        [
+            311.1474129357343,
+            392.8839134580602,
+            31.628944396972656
+        ],
+        [
+            305.308736143059,
+            365.20717624808134,
+            40.958133697509766
+        ],
+        [
+            296.55928350326406,
+            344.6487949195921,
+            42.178436279296875
+        ],
+        [
+            289.09028835985714,
+            321.9771320066599,
+            41.17280578613281
+        ]
+    ],
+    "indexFinger": [
+        [
+            351.26226986601506,
+            315.317770126479,
+            33.45431900024414
+        ],
+        [
+            317.7573958881063,
+            287.82946656887157,
+            41.258514404296875
+        ],
+        [
+            301.0551201111043,
+            279.13742066547405,
+            45.38811111450195
+        ],
+        [
+            295.82737357654224,
+            276.7010123385984,
+            46.33940887451172
+        ]
+    ],
+    "middleFinger": [
+        [
+            353.7122101313199,
+            309.04347842173087,
+            16.16316032409668
+        ],
+        [
+            294.2536349253059,
+            291.90549768414684,
+            24.071781158447266
+        ],
+        [
+            277.4029452280277,
+            312.1420227467726,
+            23.412212371826172
+        ],
+        [
+            282.40719597599997,
+            328.68568506297936,
+            20.75050163269043
+        ]
+    ],
+    "ringFinger": [
+        [
+            343.6278986695346,
+            307.76669737200876,
+            1.2318196296691895
+        ],
+        [
+            281.3661445784785,
+            301.97755074942916,
+            9.658766746520996
+        ],
+        [
+            269.26558032780065,
+            333.03373573840565,
+            8.836081504821777
+        ],
+        [
+            278.37322912437753,
+            350.7239374751061,
+            4.151844024658203
+        ]
+    ],
+    "pinky": [
+        [
+            327.2987480246994,
+            307.3400266338206,
+            -11.768608093261719
+        ],
+        [
+            281.79613233056017,
+            306.4856480945225,
+            -2.7679641246795654
+        ],
+        [
+            274.7228580919318,
+            333.18432280186977,
+            -1.2925504446029663
+        ],
+        [
+            287.3491935974832,
+            347.7520597512496,
+            -4.416280746459961
+        ]
+    ],
+    "palmBase": [
+        [
+            333.42525789734873,
+            414.1195342209028,
+            -0.0014080926775932312
+        ]
+    ]
+}
+```
